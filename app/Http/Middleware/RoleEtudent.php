@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Response;
 
-class CheckUser
+class RoleEtudent
 {
     /**
      * Handle an incoming request.
@@ -16,7 +16,7 @@ class CheckUser
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if(Auth::user()->role === 'admin'){
+        if(Auth::user()->role === 'etudent'){
           return $next($request);
         }
         

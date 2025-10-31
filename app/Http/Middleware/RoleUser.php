@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Response;
 
-class CheckUser
+class RoleUser
 {
     /**
      * Handle an incoming request.
@@ -16,10 +16,9 @@ class CheckUser
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if(Auth::user()->role === 'admin'){
+        if(Auth::user()->role === 'teacher'){
           return $next($request);
         }
-        
         
         // abort(401);
         return response()->json(['access_denied' => 'You do not have permission to accuss method you are just user.']);

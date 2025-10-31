@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreCourRequest;
 use App\Http\Requests\StoreUserRequest;
 use App\Http\Requests\UpdateUserRequest;
 use App\Models\User;
@@ -58,6 +57,9 @@ class UserController extends Controller
       
       return response()->json([
         "messsage"=>"logout successfuly"]);
+    }
+    public function testToken(){
+      return "Tsts Token";
     }
 
     /**

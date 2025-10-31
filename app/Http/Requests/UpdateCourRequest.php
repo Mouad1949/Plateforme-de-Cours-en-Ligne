@@ -11,7 +11,7 @@ class UpdateCourRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,16 @@ class UpdateCourRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+          'title' => 'required|string|min:3',
+          'description' => 'required|string|',
         ];
-    }
+
+        }
+        public function messages(){
+          return[
+            'title.required' => 'title est obligatoire.',
+            'description.unique' => 'Cet description existe déjà.',
+          ];
+        }
+    
 }
